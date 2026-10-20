@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LocalStorage Map Layer</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: system-ui, sans-serif;
+      }
+      body {
+        display: flex;
+      }
+      #map {
+        flex: 1;
+      }
+      #panel {
+        width: 280px;
+        padding: 16px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        border-right: 1px solid #ccc;
+      }
+      #panel label {
+        display: block;
+        margin-top: 8px;
+        font-size: 0.9em;
+      }
+      #panel input,
+      #panel textarea {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      #panel button {
+        margin-top: 12px;
+        margin-right: 6px;
+      }
+      .hint {
+        color: #666;
+        font-size: 0.85em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="panel">
+      <h2>Add a point</h2>
+      <p class="hint">Click the map to fill in the coordinates.</p>
+      <form id="point-form">
+        <label>Name <input id="name" required /></label>
+        <label>Details <textarea id="details" rows="3"></textarea></label>
+        <label>Latitude <input id="lat" type="number" step="any" required /></label>
+        <label>Longitude <input id="lng" type="number" step="any" required /></label>
+        <button type="submit">Save point</button>
+        <button type="button" id="clear">Clear all</button>
+      </form>
+    </div>
+    <div id="map"></div>
+
+    <script type="module" src="app.js"></script>
+    <!-- Replace YOUR_API_KEY with your Google Maps JavaScript API key. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxmOcJ8b6lAdGephXk-kXxA7Rs7j6T5hA&loading=async&callback=initMap"
+      defer
+    ></script>
+  </body>
+</html>
